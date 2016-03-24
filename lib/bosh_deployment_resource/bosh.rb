@@ -12,6 +12,10 @@ module BoshDeploymentResource
       @command_runner = command_runner
     end
 
+    def errand(manifest_path, errand)
+      bosh("-d #{manifest_path} run errand #{errand}")
+    end
+
     def upload_stemcell(path)
       bosh("upload stemcell #{path} --skip-if-exists")
     end
